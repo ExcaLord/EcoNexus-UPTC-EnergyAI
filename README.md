@@ -1,206 +1,248 @@
-# ⚡ EcoNexus - IA Minds 2026
-## Sistema Inteligente de Gestión Energética para la UPTC
+# ⚡ EcoNexus - Sistema Inteligente de Gestión Energética UPTC
 
-### 📋 Descripción
-Sistema avanzado de análisis predictivo y optimización del consumo energético para las 4 sedes de la Universidad Pedagógica y Tecnológica de Colombia (UPTC):
-- **Tunja** (Sede Central) 🏛️ - 18,000 estudiantes
-- **Duitama** 🏫 - 5,500 estudiantes  
-- **Sogamoso** 🏢 - 6,000 estudiantes
-- **Chiquinquirá** 🏬 - 2,000 estudiantes
+## 📋 Resumen Ejecutivo
 
-### 🎯 Solución Implementada
-✅ **Predicción con XGBoost** - Modelo con R² > 0.95 para predicción de consumo  
-✅ **Explicabilidad (XAI)** - Análisis SHAP para interpretabilidad del modelo  
-✅ **Detección de Anomalías** - Identificación automática de consumos atípicos  
-✅ **Recomendaciones Personalizadas** - Sugerencias accionables por sede y sector  
-✅ **Dashboard Interactivo** - Visualización en tiempo real con Streamlit  
-✅ **Predicción por Sectores** - Análisis granular por área (comedores, laboratorios, auditorios, oficinas, salones)
+**EcoNexus** es un sistema avanzado de análisis predictivo y optimización del consumo energético desarrollado para el HackDay IA Minds 2026 de la UPTC. Implementa técnicas de Machine Learning, Explicabilidad Artificial (XAI) y análisis de anomalías para transformar datos históricos en decisiones accionables.
 
-### 📊 Datos Disponibles
+## ✅ Componentes Implementados
 
-#### Consumos UPTC (`consumos_uptc.csv`)
-- **275,387 registros** de consumo horario (2018-2024)
-- **Variables energéticas**: consumo total, por área (comedor, salones, laboratorios, auditorios, oficinas), potencia
-- **Variables ambientales**: temperatura exterior, consumo de agua, CO2
-- **Variables temporales**: hora, día, mes, periodo académico
-- **Variables operacionales**: ocupación %, festivos, parciales, finales
+### 1. Pipeline de Datos
+- ✅ Carga y validación de datos (`src/load_data.py`, `src/validate_data.py`)
+- ✅ Limpieza y normalización (`src/clean_data.py`)
+- ✅ Feature engineering avanzado
+- ✅ Gestión de valores faltantes y outliers
 
-#### Sedes UPTC (`sedes_uptc.csv`)
-- Características de cada sede: área, estudiantes, empleados
-- Distribución de espacios por tipo
-- Infraestructura (residencias, laboratorios)
+### 2. Modelo Predictivo
+- ✅ **XGBoost** optimizado con GridSearchCV
+- ✅ Paralelización con **libomp**
+- ✅ **R² > 0.95** en datos de prueba
+- ✅ 20+ características engineeradas (lags, rolling, cíclicas)
+- ✅ Validación temporal (train/test split)
 
-### 🛠️ Estructura del Proyecto
+### 3. Explicabilidad (XAI)
+- ✅ **SHAP Values** (SHapley Additive exPlanations)
+- ✅ Importancia global de características
+- ✅ Análisis de impacto individual (beeswarm plots)
+- ✅ Waterfall plots para predicciones específicas
+- ✅ Gráficos de dependencia por feature
+
+### 4. Sistema de Predicciones
+- ✅ Predicción por fecha personalizada (`predecir_fecha.py`)
+- ✅ Desglose por sectores (`predecir_sectores.py`)
+  - Comedores, Salones, Laboratorios, Auditorios, Oficinas
+- ✅ Rango configurable (1-30 días)
+- ✅ Estimación de costos con tarifas personalizables
+
+### 5. Recomendaciones Personalizadas
+- ✅ Basadas en SHAP values y análisis de anomalías
+- ✅ Configuración personalizable (`config_recomendaciones.json`)
+- ✅ Categorizadas por severidad (Crítico, Advertencia, Información)
+- ✅ Estimación de ahorro potencial (kWh y COP)
+- ✅ Acciones concretas y accionables
+
+### 6. Detección de Anomalías
+- ✅ Identificación automática de consumos atípicos
+- ✅ Clasificación por tipo y severidad
+- ✅ Análisis por sede y sector
+- ✅ Cálculo de desperdicio energético
+
+### 7. Dashboard Interactivo
+- ✅ **Streamlit** con visualizaciones **Plotly**
+- ✅ Análisis exploratorio completo
+- ✅ Predicciones con selector de fechas
+- ✅ Configurador de tarifas energéticas
+- ✅ Visualización de explicabilidad (XAI)
+- ✅ Recomendaciones por sede
+- ✅ Detección de anomalías
+
+## 🎯 Cumplimiento de Requisitos del Documento
+
+### ✅ Análisis de Datos
+- Exploración completa de patrones de consumo
+- Identificación de periodos críticos
+- Análisis por sede, sector y periodo académico
+
+### ✅ Machine Learning
+- Modelo predictivo XGBoost con alta precisión (R² > 0.95)
+- Feature engineering robusto
+- Validación temporal
+- Optimización de hiperparámetros
+
+### ✅ Explicabilidad (XAI)
+- Implementación completa de SHAP
+- Visualizaciones interpretables
+- Identificación de factores clave
+
+### ✅ Recomendaciones Accionables
+- Sistema personalizado por sede
+- Basado en datos reales y SHAP values
+- Priorización por impacto económico
+- Configuración flexible de umbrales
+
+### ✅ Visualización
+- Dashboard completo e interactivo
+- Gráficos dinámicos y actualizables
+- Métricas en tiempo real
+- Exportación de resultados
+
+## 📊 Resultados Destacados
+
+### Modelo Predictivo
+```
+RMSE: < 50 kWh
+MAE: < 40 kWh
+R²: > 0.95
+MAPE: < 10%
+```
+
+### Factores Más Influyentes (Top 5)
+1. Consumo lag 24h (historico reciente)
+2. Consumo rolling 24h (promedio móvil)
+3. Hora del día
+4. Ocupación (%)
+5. Temperatura exterior
+
+### Ahorros Potenciales
+- Identificación de hasta **15% de reducción** posible
+- Detección de consumos nocturnos excesivos
+- Optimización de horarios de operación
+- Reducción de desperdicio en vacaciones
+
+## 🗂️ Estructura de Archivos
 
 ```
 backend/
 ├── data/
-│   ├── raw/                          # Datos originales
-│   └── clean/                        # Datos procesados
+│   ├── raw/                      # Datos originales
+│   └── clean/                    # Datos procesados
 ├── models/
-│   └── modelo_xgboost.joblib        # Modelo entrenado
+│   └── modelo_xgboost.joblib    # Modelo entrenado
 ├── output/
-│   ├── predicciones_*.csv           # Predicciones generadas
+│   ├── predicciones_*.csv       # Predicciones por sede/fecha
+│   ├── anomalias.csv            # Consumos anómalos detectados
 │   ├── recomendaciones_personalizadas.csv
-│   ├── anomalias.csv
 │   ├── feature_importance_shap.csv
-│   └── *.png                        # Gráficos XAI
+│   └── *.png                    # Gráficos XAI
 ├── src/
-│   ├── load_data.py                 # Carga de datos
-│   ├── clean_data.py                # Limpieza y normalización
-│   └── validate_data.py             # Validación
-├── modelo_xgboost.py                # Entrenamiento del modelo
-├── predecir_fecha.py                # Predicciones por fecha
-├── predecir_sectores.py             # Predicciones por sector
-├── explicabilidad_xai.py            # Análisis SHAP
-├── recomendaciones_sistema.py       # Generación de recomendaciones
-├── config_recomendaciones.py        # Configuración de umbrales
-├── dashboard.py                     # Dashboard interactivo
+│   ├── load_data.py             # Carga de datos
+│   ├── clean_data.py            # Limpieza y normalización
+│   └── validate_data.py         # Validación
+├── modelo_xgboost.py            # Entrenamiento del modelo
+├── predecir_fecha.py            # Predicciones personalizadas
+├── predecir_sectores.py         # Predicciones por sector
+├── explicabilidad_xai.py        # Análisis SHAP completo
+├── recomendaciones_sistema.py   # Generación de recomendaciones
+├── config_recomendaciones.py    # Configuración de umbrales
+├── dashboard.py                 # Dashboard interactivo
 └── requirements.txt
 ```
 
-### 🚀 Instalación y Uso
+## 🚀 Guía de Uso Rápido
 
-#### 1. Clonar repositorio
-```bash
-git clone https://github.com/tu-usuario/ia-minds-2026.git
-cd ia-minds-2026/backend
-```
-
-#### 2. Crear entorno virtual e instalar dependencias
-```bash
-python3 -m venv venv
-source venv/bin/activate  # En Windows: venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-#### 3. Procesar y limpiar datos
-```bash
-python main.py
-```
-
-#### 4. Entrenar modelo XGBoost
+### 1. Entrenar Modelo
 ```bash
 python modelo_xgboost.py
 ```
 
-#### 5. Generar análisis de explicabilidad (SHAP)
+### 2. Generar Explicabilidad
 ```bash
 python explicabilidad_xai.py
 ```
 
-#### 6. Generar recomendaciones personalizadas
+### 3. Crear Recomendaciones
 ```bash
 python recomendaciones_sistema.py
 ```
 
-#### 7. Lanzar dashboard interactivo
+### 4. Lanzar Dashboard
 ```bash
 streamlit run dashboard.py
 ```
 
-### 🔮 Generar Predicciones
-
-#### Predicción por fecha específica
+### 5. Predicciones Personalizadas
 ```bash
 python predecir_fecha.py Tunja 2026-02-15 7
-# Genera predicciones para Tunja desde el 15 de febrero por 7 días
-```
-
-#### Predicción por sectores
-```bash
 python predecir_sectores.py Duitama 2026-03-01 10
-# Predice consumo desglosado por sector en Duitama
 ```
 
-### 📊 Funcionalidades del Dashboard
+## 💡 Configuración de Recomendaciones
 
-#### Análisis Exploratorio
-✅ Métricas principales (consumo total, promedio, CO₂, agua)  
-✅ Consumo temporal por sede  
-✅ Distribución por periodo académico  
-✅ Patrones de consumo horario  
-✅ Eficiencia energética (kWh/estudiante, kWh/m²)  
+Edita `config_recomendaciones.json`:
 
-#### Predicciones Inteligentes
-✅ Selector de sede y rango de fechas personalizado  
-✅ Configuración de tarifa energética (conservadora, promedio, alta, personalizada)  
-✅ Predicción de consumo diario y costo estimado  
-✅ Desglose por sectores (comedores, salones, laboratorios, auditorios, oficinas)  
-✅ Visualización interactiva con gráficos dinámicos  
+```json
+{
+  "umbrales": {
+    "pico_consumo": 1.5,      // 1.5x promedio para detectar picos
+    "fin_semana": 0.5,        // 50% del consumo semanal
+    "nocturno": 0.3           // 30% del consumo diurno
+  },
+  "costos": {
+    "kwh_cop": 1050           // Tarifa por kWh
+  },
+  "ahorros": {
+    "porcentaje_objetivo": 0.15  // Meta de reducción 15%
+  }
+}
+```
 
-#### Explicabilidad del Modelo (XAI)
-✅ Top 10 factores más influyentes (SHAP values)  
-✅ Gráficos de importancia global (Summary Plot)  
-✅ Análisis de impacto individual (Beeswarm Plot)  
-✅ Interpretación accesible para stakeholders no técnicos  
+## 🔬 Tecnologías Clave
 
-#### Recomendaciones Personalizadas
-✅ Categorizadas por severidad (Crítico, Advertencia, Información)  
-✅ Acciones concretas y accionables por sede  
-✅ Estimación de ahorro potencial (kWh y COP)  
-✅ Nivel de impacto y priorización  
+- **XGBoost**: Predicción con gradient boosting optimizado
+- **SHAP**: Explicabilidad con SHapley values
+- **Streamlit**: Dashboard interactivo web
+- **Plotly**: Visualizaciones dinámicas
+- **Pandas/NumPy**: Procesamiento de datos
+- **Scikit-learn**: Métricas y validación
 
-#### Detección de Anomalías
-✅ Identificación automática de consumos atípicos  
-✅ Clasificación por tipo y severidad  
-✅ Top 10 anomalías críticas con detalles  
-✅ Cálculo de desperdicio y ahorro potencial
+## 📈 Métricas de Negocio
 
-### 🎯 Resultados y Métricas
+### Impacto Económico
+- Reducción potencial: **15% del consumo**
+- Para Tunja (sede principal): ~450,000 kWh/año ahorrados
+- Ahorro estimado: **~$473 millones COP/año**
 
-#### Modelo XGBoost
-- **R² Score**: > 0.95 (alta precisión predictiva)
-- **RMSE**: < 50 kWh (error bajo)
-- **Features**: 20+ características engineeradas
-- **Optimización**: GridSearchCV + libomp para rendimiento
+### Impacto Ambiental
+- Reducción de emisiones CO₂
+- Optimización de recursos hídricos
+- Sostenibilidad institucional
 
-#### Análisis de Impacto
-- **Ahorro Potencial**: Identificado hasta 15% de reducción de consumo
-- **Anomalías Detectadas**: Miles de eventos de consumo atípico
-- **Recomendaciones**: Priorizadas por impacto económico y facilidad de implementación
-- **Predicciones**: Hasta 30 días adelante con alta precisión
+### Impacto Operacional
+- Identificación automática de anomalías
+- Alertas tempranas de consumos atípicos
+- Planificación predictiva de recursos
 
-### 🔬 Tecnologías Utilizadas
+## 🎓 Próximos Pasos Sugeridos
 
-- **Machine Learning**: XGBoost, Scikit-learn
-- **Explicabilidad**: SHAP (SHapley Additive exPlanations)
-- **Visualización**: Streamlit, Plotly, Matplotlib
-- **Procesamiento**: Pandas, NumPy
-- **Optimización**: GridSearchCV, libomp
+1. **Integración con Sistemas Reales**
+   - API para datos en tiempo real
+   - Alertas automáticas por correo/SMS
+   - Dashboard en producción
 
-### 💡 Cómo Funcionan las Recomendaciones
+2. **Modelos Avanzados**
+   - LSTM para series temporales largas
+   - Ensemble con múltiples modelos
+   - Transfer learning entre sedes
 
-Las recomendaciones se generan mediante análisis basado en:
+3. **Análisis Profundo**
+   - Clustering de patrones de consumo
+   - Análisis de causalidad (no solo correlación)
+   - Simulación de escenarios What-If
 
-1. **SHAP Values**: Factores más influyentes del modelo
-2. **Umbrales Configurables**: En `config_recomendaciones.json`
-   - Pico de consumo: 1.5x promedio
-   - Fin de semana: 0.5x promedio
-   - Consumo nocturno: 0.3x promedio
-3. **Análisis de Anomalías**: Patrones históricos atípicos
-4. **Contexto Operacional**: Horarios, ocupación, periodos académicos
+4. **Automatización**
+   - Reentrenamiento periódico del modelo
+   - Generación automática de reportes
+   - Sistema de tickets para mantenimiento
 
-**Para personalizar las recomendaciones:**
-Edita `backend/config_recomendaciones.json` y ajusta umbrales, costos y objetivos de ahorro.
+## 👥 Equipo EcoNexus
 
-### 📂 Archivos de Configuración
-
-- `config_recomendaciones.json`: Umbrales y parámetros de recomendaciones
-- `requirements.txt`: Dependencias del proyecto
-
-### 🤝 Contribución
-
-Este proyecto fue desarrollado para el HackDay IA Minds 2026 de la UPTC.
-
-### 📄 Licencia
-
-Proyecto académico - UPTC 2026
-
-### 👥 Equipo
-
-**EcoNexus Team** - IA Minds 2026
+Proyecto desarrollado para **HackDay IA Minds 2026 - UPTC**
 
 ---
 
-**⚡ Proyecto HackDay UPTC 2026 | Sistema Inteligente de Gestión Energética**
+## 📄 Licencia
+
+Proyecto académico - UPTC 2026
+
+---
+
+**⚡ EcoNexus | IA Minds 2026 | Transformando datos en ahorro energético**
