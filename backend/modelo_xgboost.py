@@ -89,7 +89,6 @@ def prepare_data(df, test_size=0.2):
 
 
 def train_xgboost(X_train, y_train, X_test, y_test):
-def train_xgboost(X_train, y_train, X_test, y_test):
     print("\n🚀 Entrenando XGBoost...")
     
     model = xgb.XGBRegressor(
@@ -135,7 +134,6 @@ def evaluate_model(model, X_test, y_test, model_name="XGBoost"):
 
 
 def plot_predictions(y_test, y_pred, model_name="XGBoost"):
-def plot_predictions(y_test, y_pred, model_name="XGBoost"):
     fig, axes = plt.subplots(2, 2, figsize=(16, 12))
     
     axes[0, 0].scatter(y_test, y_pred, alpha=0.3, s=1)
@@ -174,7 +172,6 @@ def plot_predictions(y_test, y_pred, model_name="XGBoost"):
     print(f"\n✅ Gráfico guardado: {OUTPUT_DIR / f'predicciones_{model_name.lower()}.png'}")
 
 
-def feature_importance(model, feature_cols, model_name="XGBoost"):
 def feature_importance(model, feature_cols, model_name="XGBoost"):
     importance_df = pd.DataFrame({
         'feature': feature_cols,

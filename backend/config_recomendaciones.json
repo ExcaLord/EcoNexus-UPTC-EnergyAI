@@ -1,0 +1,29 @@
+{
+  "umbrales": {
+    "pico_consumo": 1.5,
+    "fin_semana": 0.5,
+    "nocturno": 0.3
+  },
+  "costos": {
+    "kwh_cop": 1050,
+    "comentario": "Costo promedio del kWh en Colombia (COP)"
+  },
+  "ahorros": {
+    "porcentaje_objetivo": 0.15,
+    "comentario": "Objetivo de ahorro del 15% según mejores prácticas"
+  },
+  "recomendaciones_personalizadas": {
+    "picos": {
+      "descripcion": "Redistribuir actividades de alto consumo",
+      "ejemplo": "Programar equipos de alto consumo fuera del horario pico"
+    },
+    "fin_semana": {
+      "descripcion": "Implementar apagado automático de equipos",
+      "ejemplo": "Instalar temporizadores y sistemas de gestión energética"
+    },
+    "nocturno": {
+      "descripcion": "Auditar iluminación y equipos nocturnos",
+      "ejemplo": "Instalar sensores de movimiento y reducir iluminación"
+    }
+  }
+}

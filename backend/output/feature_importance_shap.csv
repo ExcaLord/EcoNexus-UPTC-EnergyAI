@@ -1,0 +1,14 @@
+Feature,Importancia_SHAP
+potencia_total_kw,0.4691263
+ocupacion_pct,0.048005495
+hora,0.016312461
+dia_semana,0.0079000015
+es_festivo,0.004553943
+agua_litros,0.004032264
+año,0.0012469441
+mes,0.0011996562
+trimestre,0.0010722456
+temperatura_exterior_c,0.001036994
+es_fin_semana,0.0009071612
+es_semana_finales,0.0006918089
+es_semana_parciales,0.00059064274

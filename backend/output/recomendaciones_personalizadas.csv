@@ -1,0 +1,19 @@
+tipo,categoria,descripcion,accion,ahorro_kwh,impacto,sede
+Crítico,Picos de Consumo,Consumo máximo a las 10:00 hrs (4.41 kWh),Redistribuir actividades de alto consumo fuera del horario pico. Potencial ahorro: 60 kWh/mes,59.70768473871722,Alto,Chiquinquirá
+Información,Factor Clave (ML),"""potencia_total_kw"" es el factor más influyente (importancia: 0.469)",Priorizar gestión de potencia_total_kw para maximizar impacto en eficiencia energética.,0.0,Estratégico,Chiquinquirá
+Información,Eficiencia Energética,Consumo promedio: 2.42 kWh,Monitoreo continuo de patrones. Implementar sistema de gestión energética ISO 50001.,0.0,Bajo,Chiquinquirá
+Crítico,Picos de Consumo,Consumo máximo a las 09:00 hrs (11.84 kWh),Redistribuir actividades de alto consumo fuera del horario pico. Potencial ahorro: 143 kWh/mes,142.83030585888605,Alto,Duitama
+Advertencia,Consumo Fin de Semana,Consumo fin de semana alto (4.52 kWh vs 8.11 kWh),Verificar equipos encendidos innecesariamente. Ahorro: 23 kWh/mes,23.1914715004707,Medio,Duitama
+Información,Factor Clave (ML),"""potencia_total_kw"" es el factor más influyente (importancia: 0.469)",Priorizar gestión de potencia_total_kw para maximizar impacto en eficiencia energética.,0.0,Estratégico,Duitama
+Información,Eficiencia Energética,Consumo promedio: 7.08 kWh,Monitoreo continuo de patrones. Implementar sistema de gestión energética ISO 50001.,0.0,Bajo,Duitama
+Crítico,Picos de Consumo,Consumo máximo a las 10:00 hrs (11.82 kWh),Redistribuir actividades de alto consumo fuera del horario pico. Potencial ahorro: 139 kWh/mes,138.98659874594074,Alto,Sogamoso
+Advertencia,Consumo Fin de Semana,Consumo fin de semana alto (4.67 kWh vs 8.19 kWh),Verificar equipos encendidos innecesariamente. Ahorro: 24 kWh/mes,24.240208240814958,Medio,Sogamoso
+Información,Factor Clave (ML),"""potencia_total_kw"" es el factor más influyente (importancia: 0.469)",Priorizar gestión de potencia_total_kw para maximizar impacto en eficiencia energética.,0.0,Estratégico,Sogamoso
+Información,Eficiencia Energética,Consumo promedio: 7.19 kWh,Monitoreo continuo de patrones. Implementar sistema de gestión energética ISO 50001.,0.0,Bajo,Sogamoso
+Crítico,Picos de Consumo,Consumo máximo a las 09:00 hrs (5.32 kWh),Redistribuir actividades de alto consumo fuera del horario pico. Potencial ahorro: 64 kWh/mes,63.50260821213759,Alto,Tunja
+Advertencia,Consumo Fin de Semana,Consumo fin de semana alto (2.02 kWh vs 3.68 kWh),Verificar equipos encendidos innecesariamente. Ahorro: 10 kWh/mes,10.319625604217627,Medio,Tunja
+Información,Factor Clave (ML),"""potencia_total_kw"" es el factor más influyente (importancia: 0.469)",Priorizar gestión de potencia_total_kw para maximizar impacto en eficiencia energética.,0.0,Estratégico,Tunja
+Información,Eficiencia Energética,Consumo promedio: 3.20 kWh,Monitoreo continuo de patrones. Implementar sistema de gestión energética ISO 50001.,0.0,Bajo,Tunja
+Crítico,Comparación entre Sedes,Sogamoso consume 3.0x más que Chiquinquirá,Benchmarking de mejores prácticas de Chiquinquirá. Auditoría energética en Sogamoso.,0.0,Alto,Todas
+Advertencia,Variabilidad de Consumo,Duitama tiene alta variabilidad en consumo,Identificar causas de fluctuaciones. Establecer protocolos de uso energético.,656.4334226032364,Medio,Todas
+Información,Potencial de Ahorro,Ahorro estimado con optimizaciones: 205398 kWh/año,"Implementar recomendaciones puede ahorrar $215,667,814 COP anuales (15%).",205397.9182257784,Estratégico,Todas
